@@ -115,3 +115,63 @@ fragment UserFields on User {
 2. **Dificuldades de Cache:** Implementar cache pode ser mais complicado que em REST.
 3. **Overhead no Servidor:** Consultas complexas podem gerar alto consumo de recursos.
 4. **Segurança:** É necessário limitar consultas para evitar abusos ou ataques.
+
+
+## Exemplos Práticos
+
+### Exemplo de Query
+Consulta para buscar dados de um usuário, incluindo suas postagens:
+```graphql
+{
+  user(id: "123") {
+    name
+    email
+    posts {
+      title
+      content
+    }
+  }
+}
+```
+
+### Exemplo de Mutation
+Mutation para atualizar o nome de um usuário:
+```graphql
+mutation {
+  updateUser(id: "123", name: "Novo Nome") {
+    id
+    name
+    email
+  }
+}
+```
+
+### Schema Completo
+Exemplo de schema que define os tipos User e Post, uma query para buscar usuários e postagens, e uma mutation para atualizar usuários:
+```graphql
+type Query {
+  user(id: ID!): User
+  posts: [Post]
+}
+
+type Mutation {
+  updateUser(id: ID!, name: String): User
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  posts: [Post]
+}
+
+type Post {
+  id: ID!
+  title: String!
+  content: String!
+}
+```
+
+# Links Úteis
+Documentação Oficial do GraphQL
+- [Documentação Oficial do GraphQL](https://graphql.org/learn/)
