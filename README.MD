@@ -1,6 +1,6 @@
 # Introdução ao GraphQL
 
-> Resumo sobre GraphQL: conceitos, funcionamento e exemplos práticos.
+> Resumo sobre GraphQL: conceitos, funcionamento e exemplos didáticos.
 
 ## Sumário
 
@@ -175,3 +175,4 @@ type Post {
 # Links Úteis
 Documentação Oficial do GraphQL
 - [Documentação Oficial do GraphQL](https://graphql.org/learn/)
+- [APIs GraphQL gratuitas](https://www.postman.com/devrel/graphql-examples/collection/94xo3pv/free-graphql-apis)
