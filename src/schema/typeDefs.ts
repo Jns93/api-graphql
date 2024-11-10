@@ -20,6 +20,7 @@ const typeDefs = gql`
     id: ID!
     content: String!
     author: User!
+    post: Post!
   }
 
   type Query {

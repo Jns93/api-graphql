@@ -31,15 +31,24 @@ const resolvers: Resolvers = {
       author.posts.push(newPost);
       return newPost;
     },
-    addComment: (_, { postId, content, authorId }: { postId: string; content: string; authorId: string }): Comment => {
-      const post = posts.find((post) => post.id === postId);
-      const author = users.find((user) => user.id === authorId);
-      if (!post || !author) throw new Error('Post or author not found');
-      const newComment: Comment = { id: uuidv4(), content, author };
-      comments.push(newComment);
-      post.comments.push(newComment);
-      return newComment;
-    },
+    addComment: (_, { postId, content, authorId }) => {
+        const post = posts.find((post) => post.id === postId);
+        const author = users.find((user) => user.id === authorId);
+        if (!post) {
+          throw new Error("Post not found");
+        }
+        if (!author) {
+          throw new Error("Author not found");
+        }
+        const newComment = {
+          id: uuidv4(),
+          content,
+          author,
+          post,
+        };
+        post.comments.push(newComment);
+        return newComment;
+      },
   },
 };
 
